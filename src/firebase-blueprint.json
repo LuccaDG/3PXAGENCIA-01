@@ -1,0 +1,24 @@
+{
+  "entities": {
+    "Review": {
+      "title": "Review",
+      "description": "Customer reviews for 3PX services",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "Customer name" },
+        "company": { "type": "string", "description": "Customer company" },
+        "rating": { "type": "number", "description": "Star rating (1-5)" },
+        "comment": { "type": "string", "description": "Review text" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Creation timestamp" },
+        "approved": { "type": "boolean", "description": "Whether the review is approved for display" }
+      },
+      "required": ["name", "rating", "comment", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/reviews/{reviewId}": {
+      "schema": "Review",
+      "description": "Collection of customer reviews"
+    }
+  }
+}
